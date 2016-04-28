@@ -26,23 +26,23 @@ public class Logger{
 	private static let LEVEL_DBG = "DBG";
 	private static let LEVEL_WRN = "WRN";
 
-	internal init(forName:String){
+	public init(forName:String){
 		self.name = forName
 	}
 
-	internal func info(_ text:String){
+	public func info(_ text:String){
 		printLog(text, level: Logger.LEVEL_INF)
 	}
 
-	internal func debug(_ text:String){
+	public func debug(_ text:String){
 		printLog(text, level: Logger.LEVEL_DBG)
 	}
 
-	internal func warn(_ text:String){
+	public func warn(_ text:String){
 		printLog(text, level: Logger.LEVEL_WRN)
 	}
 
-	internal func error(_ text:String){
+	public func error(_ text:String){
 		printLog(text, level: Logger.LEVEL_ERR)
 	}
 
