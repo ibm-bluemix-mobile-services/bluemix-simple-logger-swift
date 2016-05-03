@@ -1,7 +1,7 @@
 import XCTest
-@testable import BluemixSimpleLogger
+@testable import SimpleLogger
 
-class BluemixSimpleLoggerTests: XCTestCase {
+class SimpleLoggerTests: XCTestCase {
 
 	func testExample() {
 		// This is an example of a functional test case.
@@ -9,8 +9,8 @@ class BluemixSimpleLoggerTests: XCTestCase {
 	}
 
 }
-extension BluemixSimpleLoggerTests {
-	static var allTests : [(String, BluemixSimpleLoggerTests -> () throws -> Void)] {
+extension SimpleLoggerTests {
+	static var allTests : [(String, SimpleLoggerTests -> () throws -> Void)] {
 		return [
 			("testExample", testExample),
 		]

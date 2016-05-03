@@ -1,6 +1,6 @@
 import XCTest
-@testable import bluemix-simpleloggerTestSuite
+@testable import SimpleLoggerTestSuite
 
 XCTMain([
-	 testCase(bluemix-simpleloggerTests.allTests),
+	 testCase(SimpleLoggerTests.allTests),
 ])

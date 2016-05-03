@@ -16,15 +16,15 @@ import Foundation
 /// BluemixObjectStore internal logging infrastructure
 public class Logger{
 
-	public let name:String;
+	public let name:String
 
 	/// Use to enable or disable logging output
 	public static let enabled:Boolean = true
 
-	private static let LEVEL_INF = "INF";
-	private static let LEVEL_ERR = "ERR";
-	private static let LEVEL_DBG = "DBG";
-	private static let LEVEL_WRN = "WRN";
+	private static let LEVEL_INF = "INF"
+	private static let LEVEL_ERR = "ERR"
+	private static let LEVEL_DBG = "DBG"
+	private static let LEVEL_WRN = "WRN"
 
 	public init(forName:String){
 		self.name = forName
