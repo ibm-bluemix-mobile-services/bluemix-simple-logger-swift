@@ -15,7 +15,7 @@ let package = Package(
 )
 ```
 
-0.1.x releases of SimpleLogger is tested on OSX and Linux with DEVELOPMENT-SNAPSHOT-2016-04-25-a 
+0.1.x releases of SimpleLogger are tested on OSX and Linux with DEVELOPMENT-SNAPSHOT-2016-04-25-a 
 
 ## Usage
 
