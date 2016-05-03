@@ -1,4 +1,4 @@
-# BluemixSimpleLogger
+# SimpleLogger
 
 [![Swift][swift-badge]][swift-url]
 [![Platform][platform-badge]][platform-url]
@@ -10,17 +10,17 @@ import PackageDescription
 
 let package = Package(
     dependencies: [
-        .Package(url: "https://github.com/ibm-bluemix-mobile-services/bluemix-simple-logger-swift.git", majorVersion: 0)
+        .Package(url: "https://github.com/ibm-bluemix-mobile-services/bluemix-simple-logger-swift.git", majorVersion: 0, minor: 1)
     ]
 )
 ```
 
-BluemixSimpleLogger was tested on OSX and Linux with DEVELOPMENT-SNAPSHOT-2016-04-25-a 
+0.1.x releases of SimpleLogger is tested on OSX and Linux with DEVELOPMENT-SNAPSHOT-2016-04-25-a 
 
 ## Usage
 
 ```swift
-import BluemixSimpleLogger
+import SimpleLogger
 
 let logger = Logger(forName:"MySimpleLogger")
 logger.info("info message")
