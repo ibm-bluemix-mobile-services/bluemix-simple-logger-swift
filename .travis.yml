@@ -1,0 +1,14 @@
+os:
+  - linux
+  - osx
+language: generic
+sudo: required
+dist: trusty
+osx_image: xcode7.3
+install:
+  - eval "$(cat ./install-swiftenv.sh)"
+script:
+  - swift build --fetch # clones all dependencies
+  - swift build -Xlinker -rpath -Xlinker $(pwd)/.build/debug/
+  - swift test
+
