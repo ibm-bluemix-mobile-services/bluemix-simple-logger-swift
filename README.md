@@ -25,7 +25,7 @@ import SimpleLogger
 let logger = Logger(forName:"MySimpleLogger")
 logger.info("info message")
 logger.debug("debug message")
-logger.warn"warn message")
+logger.warn("warn message")
 logger.error("error message")
 ```
 
