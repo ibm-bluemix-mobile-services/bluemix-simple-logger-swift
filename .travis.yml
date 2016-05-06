@@ -11,4 +11,3 @@ script:
   - swift build --fetch # clones all dependencies
   - swift build -Xlinker -rpath -Xlinker $(pwd)/.build/debug/
   - swift test
-
