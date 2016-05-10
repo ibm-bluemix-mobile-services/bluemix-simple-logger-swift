@@ -3,16 +3,34 @@ import XCTest
 
 class SimpleLoggerTests: XCTestCase {
 
-	func testExample() {
-		// This is an example of a functional test case.
-		// Use XCTAssert and related functions to verify your tests produce the correct results.
+	func testInfo() {
+            let logger = Logger(forName: "MySimpleLogger")
+            logger.info("info message")
 	}
+
+        func testDebug() {
+            let logger = Logger(forName: "MySimpleLogger")
+            logger.debug("debug message")
+        }
+
+        func testWarn() {
+            let logger = Logger(forName: "MySimpleLogger")
+            logger.warn("warn message")
+        }
+
+        func testError() {
+            let logger = Logger(forName: "MySimpleLogger")
+            logger.error("error message")
+        }
 
 }
 extension SimpleLoggerTests {
 	static var allTests : [(String, SimpleLoggerTests -> () throws -> Void)] {
 		return [
-			("testExample", testExample),
+			("testInfo", testInfo),
+                        ("testDebug", testDebug),
+                        ("testWarn", testWarn),
+                        ("testError", testError)
 		]
 	}
 }
