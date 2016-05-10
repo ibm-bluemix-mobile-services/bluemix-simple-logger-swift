@@ -2,6 +2,7 @@
 
 [![Swift][swift-badge]][swift-url]
 [![Platform][platform-badge]][platform-url]
+[![Build Status](https://travis-ci.org/ibm-bluemix-mobile-services/bluemix-simple-logger-swift.svg?branch=master)](https://travis-ci.org/ibm-bluemix-mobile-services/bluemix-simple-logger-swift)
 
 ## Installation
 
