@@ -25,7 +25,7 @@ class SimpleLoggerTests: XCTestCase {
 
 }
 extension SimpleLoggerTests {
-	static var allTests : [(String, SimpleLoggerTests -> () throws -> Void)] {
+	static var allTests : [(String, (SimpleLoggerTests) -> () throws -> Void)] {
 		return [
 			("testInfo", testInfo),
                         ("testDebug", testDebug),
