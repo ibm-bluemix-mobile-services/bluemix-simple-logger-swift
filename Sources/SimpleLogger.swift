@@ -19,7 +19,7 @@ public class Logger{
 	public let name:String
 
 	/// Use to enable or disable logging output
-	public static let enabled:Boolean = true
+	public static let enabled:Bool = true
 
 	private static let LEVEL_INF = "INF"
 	private static let LEVEL_ERR = "ERR"
