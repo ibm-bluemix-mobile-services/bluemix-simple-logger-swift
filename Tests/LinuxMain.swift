@@ -1,5 +1,5 @@
 import XCTest
-@testable import SimpleLoggerTestSuite
+@testable import SimpleLoggerTests
 
 XCTMain([
 	 testCase(SimpleLoggerTests.allTests),
