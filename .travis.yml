@@ -4,7 +4,7 @@ os:
 language: generic
 env:
   global:
-  - SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2016-09-01-a
+  - SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2016-09-07-a
 sudo: required
 dist: trusty
 osx_image: xcode8
