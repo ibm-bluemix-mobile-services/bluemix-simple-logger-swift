@@ -9,9 +9,12 @@ sudo: required
 dist: trusty
 osx_image: xcode8
 install:
-  - eval "$(cat ./install-swiftenv.sh)"
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      eval "$(cat ./install-swiftenv.sh)";
+    fi
+  - git --version
 script:
   - swift build --clean # clean built artifacts if present
   - swift package fetch # clones all dependencies
-  - swift build -Xcc -fblocks -Xlinker -rpath -Xlinker $(pwd)/.build/debug/ # build project
+  - swift build # build project
   - swift test #run tests
