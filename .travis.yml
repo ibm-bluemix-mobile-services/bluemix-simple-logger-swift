@@ -1,20 +1,42 @@
 os:
-  - linux
   - osx
+  - linux
+
 language: generic
+
 env:
   global:
-  - SWIFT_VERSION=3.0.2
+    - SWIFT_VERSION=3.0.2
+
 sudo: required
+
 dist: trusty
+
 osx_image: xcode8
+
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       eval "$(cat ./install-swiftenv.sh)";
     fi
   - git --version
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      gem install slather;
+    fi
+
 script:
   - swift build --clean # clean built artifacts if present
   - swift package fetch # clones all dependencies
   - swift build # build project
   - swift test #run tests
+
+after_success:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      swift package generate-xcodeproj;
+      slather setup SimpleLogger.xcodeproj
+      xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger build;
+      xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test;
+      slather coverage --coveralls --binary-basename SimpleLogger.framework -v;
+    fi
+
+# TRAVIS_PULL_REQUEST==false check
+# TRAVIS_BRANCH==development || master check
