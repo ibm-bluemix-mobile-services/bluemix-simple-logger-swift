@@ -13,8 +13,9 @@ install:
       eval "$(cat ./install-swiftenv.sh)";
     fi
   - git --version
-  - gem install slather
-  
+  - gem install slather # Install slather
+  - xcode-select --install # Install xcode command line tools
+
 script:
   - swift build --clean # clean built artifacts if present
   - swift package fetch # clones all dependencies
