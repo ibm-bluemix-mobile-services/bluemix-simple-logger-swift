@@ -13,15 +13,15 @@ install:
       eval "$(cat ./install-swiftenv.sh)";
     fi
   - git --version
-  - bundle install --without=documentation --path ../travis_bundle_dir
-
-after_success:
-  - swift package generate-xcodeproj
-  - xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test
-  - slather
-
+  - gem install slather
+  
 script:
   - swift build --clean # clean built artifacts if present
   - swift package fetch # clones all dependencies
   - swift build # build project
   - swift test #run tests
+
+after_success:
+  - swift package generate-xcodeproj
+  - xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test
+  - slather
