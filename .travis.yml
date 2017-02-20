@@ -21,7 +21,6 @@ install:
   - git --version
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       gem install slather;
-      xcode-select --install;
     fi
 
 script:
