@@ -1,11 +1,17 @@
 os:
   - osx
+  - linux
+
 language: generic
+
 env:
   global:
     - SWIFT_VERSION=3.0.2
+
 sudo: required
+
 dist: trusty
+
 osx_image: xcode8
 
 install:
