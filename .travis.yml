@@ -19,7 +19,7 @@ install:
       eval "$(cat ./install-swiftenv.sh)";
     fi
   - git --version
-  - if [["$TRAVIS_OS_NAME"] == "osx"]]; then
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       gem install slather; # Install slather
       xcode-select --install; # Install xcode command line tools
     fi
