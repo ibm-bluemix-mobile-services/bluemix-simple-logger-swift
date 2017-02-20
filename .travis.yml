@@ -8,9 +8,6 @@ sudo: required
 dist: trusty
 osx_image: xcode8
 
-before_install:
-  - rvm use $RVM_RUBY_VERSION
-
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       eval "$(cat ./install-swiftenv.sh)";
@@ -21,7 +18,7 @@ install:
 after_success:
   - swift package generate-xcodeproj
   - xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test
-  - slather 
+  - slather
 
 script:
   - swift build --clean # clean built artifacts if present
