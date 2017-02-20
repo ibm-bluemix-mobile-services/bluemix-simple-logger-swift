@@ -1,6 +1,5 @@
 os:
   - linux
-  - osx
 language: generic
 env:
   global:
@@ -8,11 +7,22 @@ env:
 sudo: required
 dist: trusty
 osx_image: xcode8
+
+before_install:
+  - rvm use $RVM_RUBY_VERSION
+
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       eval "$(cat ./install-swiftenv.sh)";
     fi
   - git --version
+  - bundle install --without=documentation --path ../travis_bundle_dir
+
+after_success:
+  - swift package generate-xcodeproj
+  - xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test
+  - slather 
+
 script:
   - swift build --clean # clean built artifacts if present
   - swift package fetch # clones all dependencies
