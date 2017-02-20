@@ -32,7 +32,11 @@ script:
 after_success:
   - if [["$TRAVIS_OS_NAME"] == "osx"]]; then
       swift package generate-xcodeproj;
+      slather setup SimpleLogger.xcodeproj
       xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger build;
       xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test;
       slather coverage --coveralls --binary-basename SimpleLogger.framework -v;
     fi
+
+# TRAVIS_PULL_REQUEST==false check
+# TRAVIS_BRANCH==development || master check
