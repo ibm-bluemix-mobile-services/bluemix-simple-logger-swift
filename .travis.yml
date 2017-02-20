@@ -1,9 +1,9 @@
 os:
-  - linux
+  - osx
 language: generic
 env:
   global:
-  - SWIFT_VERSION=3.0.2
+    - SWIFT_VERSION=3.0.2
 sudo: required
 dist: trusty
 osx_image: xcode8
@@ -13,8 +13,10 @@ install:
       eval "$(cat ./install-swiftenv.sh)";
     fi
   - git --version
-  - gem install slather # Install slather
-  - xcode-select --install # Install xcode command line tools
+  - if [["$TRAVIS_OS_NAME"] == "osx"]]; then
+      gem install slather # Install slather
+      xcode-select --install # Install xcode command line tools
+    fi
 
 script:
   - swift build --clean # clean built artifacts if present
@@ -23,6 +25,8 @@ script:
   - swift test #run tests
 
 after_success:
-  - swift package generate-xcodeproj
-  - xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test
-  - slather
+  - if [["$TRAVIS_OS_NAME"] == "mac"]]; then
+      swift package generate-xcodeproj
+      xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test
+      slather
+    fi
