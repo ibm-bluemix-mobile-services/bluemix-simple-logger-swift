@@ -3,6 +3,7 @@
 [![Swift][swift-badge]][swift-url]
 [![Platform][platform-badge]][platform-url]
 [![Build Status](https://travis-ci.org/ibm-bluemix-mobile-services/bluemix-simple-logger-swift.svg?branch=master)](https://travis-ci.org/ibm-bluemix-mobile-services/bluemix-simple-logger-swift)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/25f6740a510f4f5cabb023e8be2b1556)](https://www.codacy.com/app/ibm-bluemix-mobile-services/bluemix-simple-logger-swift?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ibm-bluemix-mobile-services/bluemix-simple-logger-swift&amp;utm_campaign=Badge_Grade)
 
 ## Installation
 
