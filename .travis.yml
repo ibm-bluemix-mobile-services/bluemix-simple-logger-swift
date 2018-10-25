@@ -6,7 +6,7 @@ language: generic
 
 env:
   global:
-    - SWIFT_VERSION=3.0.2
+    - SWIFT_VERSION=4.2
 
 sudo: required
 
