@@ -14,7 +14,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SimpleLogger"
+            name: "SimpleLogger",
+            path: "Sources"
         )
     ]
 )
