@@ -16,6 +16,9 @@ let package = Package(
         .target(
             name: "SimpleLogger",
             path: "Sources"
-        )
+        ),
+        .testTarget(
+            name: "SimpleLoggerTests",
+            dependencies: ["SimpleLogger"])
     ]
 )
