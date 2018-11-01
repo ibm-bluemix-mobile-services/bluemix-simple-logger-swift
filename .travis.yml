@@ -1,42 +1,35 @@
-os:
-  - osx
-  - linux
+branches:
+  only:
+    - master
+    - development
 
-language: generic
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: SWIFT_SNAPSHOT=4.0.3
+    - os: linux
+      dist: trusty
+      sudo: required
+      env: SWIFT_SNAPSHOT=4.1
+    - os: linux
+      dist: trusty
+      sudo: required
+    - os: osx
+      osx_image: xcode9.2
+      sudo: required
+      env: SWIFT_SNAPSHOT=4.0.3
+    - os: osx
+      osx_image: xcode9.4
+      sudo: required
+      env: SWIFT_SNAPSHOT=4.1.2 JAZZY_ELIGIBLE=true
+    - os: osx
+      osx_image: xcode10
+      sudo: required
 
-env:
-  global:
-    - SWIFT_VERSION=3.0.2
-
-sudo: required
-
-dist: trusty
-
-osx_image: xcode8
-
-install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      eval "$(cat ./install-swiftenv.sh)";
-    fi
-  - git --version
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      gem install slather;
-    fi
+before_install:
+  - git clone https://github.com/IBM-Swift/Package-Builder.git
 
 script:
-  - swift build --clean # clean built artifacts if present
-  - swift package fetch # clones all dependencies
-  - swift build # build project
-  - swift test #run tests
-
-after_success:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      swift package generate-xcodeproj;
-      slather setup SimpleLogger.xcodeproj
-      xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger build;
-      xcodebuild -project SimpleLogger.xcodeproj -scheme SimpleLogger -enableCodeCoverage YES test;
-      slather coverage --coveralls --binary-basename SimpleLogger.framework -v;
-    fi
-
-# TRAVIS_PULL_REQUEST==false check
-# TRAVIS_BRANCH==development || master check
+- ./Package-Builder/build-package.sh -projectDir $TRAVIS_BUILD_DIR

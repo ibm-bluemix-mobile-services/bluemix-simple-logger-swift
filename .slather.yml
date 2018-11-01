@@ -1,5 +1,0 @@
-coverage_service: coveralls
-xcodeproj: SimpleLogger.xcodeproj
-scheme: SimpleLogger
-ignore:
-  - Tests/*
