@@ -13,7 +13,7 @@ import PackageDescription
 
 let package = Package(
     dependencies: [
-        .Package(url: "https://github.com/ibm-bluemix-mobile-services/bluemix-simple-logger-swift.git", majorVersion: 0, minor: 4)
+        .package(url: "https://github.com/ibm-bluemix-mobile-services/bluemix-simple-logger-swift.git", from: "0.6.0")
     ]
 )
 ```
