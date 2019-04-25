@@ -14,6 +14,9 @@ dist: trusty
 
 osx_image: xcode9.3
 
+before_install:
+    - rvm install 2.4.0
+
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       eval "$(cat ./install-swiftenv.sh)";
@@ -24,8 +27,6 @@ install:
     fi
 
 script:
-  - swift build --clean # clean built artifacts if present
-  - swift package fetch # clones all dependencies
   - swift build # build project
   - swift test #run tests
 
